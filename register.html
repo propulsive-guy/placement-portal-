@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Portal</title>
+    <style>
+        body {
+            background-image: url(./bg.jpeg);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #navbar {
+            background-color: #004aad;
+            overflow: hidden;
+        }
+        #navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        #navbar a:hover {
+            background-color: #003366;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow for lifting effect */
+            display: none; /* Initially hide both forms */
+        }
+        h2 {
+            color: #004aad;
+            text-align: center;
+            padding-top: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="number"], select {
+            width: calc(100% - 12px);
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #004aad;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #003366;
+        }
+        /* Style for student registration form */
+        #student_registration_form {
+            background-color: #e6f7ff;
+        }
+        /* Style for recruiter registration form */
+        #recruiter_registration_form {
+            background-color: #e6f7ff;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <a href="#" onclick="showForm('student_registration_form')">Student Registration</a>
+        <a href="#" onclick="showForm('recruiter_registration_form')">Recruiter Registration</a>
+    </div>
+
+    <div class="container"  id="student_registration_form">
+        <h2>STUDENT REGISTRATION</h2>
+        <form action="http://localhost:3000/submit-form" method="post" onsubmit="return validateStudentForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" name="branch" required>
+        
+            <label for="contact">Contact:</label>
+            <input type="text" id="contact" name="contact" required>
+        
+            <label for="registration_number">Registration Number:</label>
+            <input type="text" id="registration_number" name="registration_number" required>
+        
+            <label for="cgpa">CGPA:</label>
+            <input type="number" id="cgpa" name="cgpa" required step="0.01">
+        
+            <label for="tenth_percentage">10th Percentage:</label>
+            <input type="number" id="tenth_percentage" name="tenth_percentage" required step="0.01">
+        
+            <label for="twelfth_percentage">12th Percentage:</label>
+            <input type="number" id="twelfth_percentage" name="twelfth_percentage" required step="0.01">
+        
+            <label for="skillset">Skillset:</label>
+            <input type="text" id="skillset" name="skillset" required>
+        
+            <label for="diploma">Diploma:</label>
+            <select id="diploma" name="diploma" required>
+                <option value="">Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        
+            <input type="submit" value="Submit">
+        </form>
+        
+    </div>
+
+<div class="container" id="recruiter_registration_form">
+        <h2>RECRUITER REGISTRATION</h2>
+        <form action="#" method="POST" onsubmit="return validateRecruiterForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contact">Contact:</label>
+            <input type="number" id="contact" name="contact" required>
+
+            <label for="position">Your position:</label>
+            <input type="text" id="position" name="position" required>
+
+            <label for="job_role">Job role:</label>
+            <select id="job_role" name="job_role" required>
+                <option value="">Select Position</option>
+                <option value="Software Developer">Software Developer</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Technical Lead">Technical Lead</option>
+                <option value="Technical Architect">Technical Architect</option>
+                <option value="HR">HR</option>
+            </select>
+
+            <label for="company_name">Company Name:</label>
+            <input type="text" id="company_name" name="company_name" required>
+
+            <label for="company_website">Website of Company:</label>
+            <input type="text" id="company_website" name="company_website" required>
+
+            <label for="package_slab">Package Slab:</label>
+            <select id="package_slab" name="package_slab" required>
+                <option value="">Select Package Slab</option>
+                <option value="2-5">2-5 lpa</option>
+                <option value="5-8">5-8 lpa</option>
+                <option value="8-12">8-12 Lpa</option>
+                <option value="12above">12 Lpa and above</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function showForm(formId) {
+            // Hide all forms
+            var forms = document.querySelectorAll('.container');
+            forms.forEach(form => {
+                form.style.display = 'none';
+            });
+
+            // Show the selected form
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function validateStudentForm() {
+            // Add validation logic here if needed
+            return true;
+        }
+
+        function validateRecruiterForm() {
+            // Add validation logic here if needed
+            return true;
+        }
+    </script>
+</body>
+</html>

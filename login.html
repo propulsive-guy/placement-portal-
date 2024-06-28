@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('./wp3287711.jpg'); /* Replace 'background-image.jpg' with your image */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .login-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      color: #333333;
+    }
+
+    .login-option {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .login-option button {
+      width: 45%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-option button:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .login-form {
+      display: none;
+    }
+
+    .login-form.active {
+      display: block;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .login-form input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #040e28;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-form input[type="submit"]:hover {
+      background-color: #204dbf;
+    }
+
+    .register-link {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .logo {
+      width: 150px;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+
+    .smit{
+       
+        border-radius: 10px;
+        width: 180px;
+        margin-top: 10px;
+        
+    }
+    button:hover{   
+
+    background-color:dodgerblue;
+
+
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-card">
+  <img src="./unnamed (1).png" alt="Logo" class="logo">
+  <h2>One Stop Portal for Placement and Internship</h2>
+  <div class="login-option">
+    <button onclick="showLoginForm('student')">Student</button>
+    <button onclick="showLoginForm('teacher')">Recruiter</button>
+  </div>
+  <form id="student-login" class="login-form">
+    <input type="text" placeholder="Student Username" required><br><br>
+    <input type="password" placeholder="Student Password" required><br><br>
+    <input type="submit" value="Student Login">
+  </form>
+  <form id="teacher-login" class="login-form">
+    <input type="text" placeholder="Recruiter Username" required><br><br>
+    <input type="password" placeholder="Recruiter Password" required><br><br>
+    <input type="submit" value="Recruiter Login">
+  </form>
+
+  OR
+
+  <html>
+<head>
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+</head>
+<body>
+  <div id="my-signin2" STYLE="margin-left: 30PX;margin-top: 20PX;"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
+  <p class="register-link">Not registered? <a href="./register.html">Register here</a></p>
+
+  <a href="./s_dashboard.html"><button class="smit">sample recruiter profile </button></a>
+  <a href="#"><button class="smit">sample  student profile </button></a>
+  
+</div>
+
+<script>
+  function showLoginForm(type) {
+    var studentForm = document.getElementById("student-login");
+    var teacherForm = document.getElementById("teacher-login");
+    
+    if (type === 'student') {
+      studentForm.classList.add("active");
+      teacherForm.classList.remove("active");
+    } else {
+      teacherForm.classList.add("active");
+      studentForm.classList.remove("active");
+    }
+  }
+</script>
+
+</body>
+</html>

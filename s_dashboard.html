@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        background-image: url('./wp3287711.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .search-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 30%;
+        left: 40%;
+    }
+
+    #input {
+        text-align: center;
+        margin-right: 10px;
+        width: 500px; /* Increased width */
+        height: 40px; /* Increased height */
+    }
+
+    .first {
+        background-color: #004aad;
+        height: 300px;
+        width: 800px;
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        border-radius: 20px; /* Rounded corners */
+        padding: 20px 10px;
+    }   
+
+    .left {
+        background-color: #004aad;
+        height: 100vh;
+        width: 200px;
+        position: relative;
+    }
+
+    p {
+        text-align: center;
+        color: white;
+    }
+
+    #font {
+        color: white;
+        position: absolute;
+        top: 60px;
+        left: 40px;
+    }
+
+    .button {
+        position: absolute;
+        bottom: 20px; /* Adjust this value as needed */
+        left: 20px;
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 15px 32px 15px 32px; /* Top, Right, Bottom, Left */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin : 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+button:hover{
+
+    color: #004aad;
+}
+    #settings {
+        bottom: 70px; /* Adjust this value as needed */
+    }
+    #profile{
+        height:70px;
+        width:70px;
+        position: absolute;
+        top: 10px;
+        left: 55px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="left">
+        <img id="profile" src="./profile.jpeg">
+        <div>
+            <h2 id="font">Username</h2>
+            <button id="settings" class="button">⚙️Settings</button>
+            <button class="button"> ⏻ Log Out</button>
+        </div>
+    </div>
+    <div class="search-content">
+        <input id="input" class="truncate" type="search" autocomplete="off" spellcheck="false" role="combobox" aria-controls="matches" aria-expanded="false" aria-live="polite" placeholder="Search Candidate">
+        <img src="./search.jpeg" height="40px" width="40px">
+    </div>
+    <div class="first">
+        <p>Candidate info along with visualization. After the searching process is done, the search bar will move towards the top.</p>
+    </div>
+</body>
+</html>
